@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :books
+  resources :books, except: [:new]
+  get "/" => "homes#top"
   root "books#index"
-  get "top" => "homes#top"
   get "books/:id" => "books#show", as: "show_book"
   patch "books/:id" => "books#update", as: "update_book"
   delete "books/:id" => "books#destroy", as: "destroy_book"
